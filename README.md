@@ -10,6 +10,16 @@ This started as just a small project to occupy my time, though it does indeed fi
 
 The project is currently in early development, and no expert mathematicians have reviewed it to make sure all the math is correct.
 
+Mathematical Limitations
+---
+If you aren't familiar with ordinals, skip this section, because it won't make sense.
+
+No matter what system we choose to represent and work with ordinals in, it always becomes possible to construct an ordinal that is outside that system. If your system is the natural numbers, we can build *ω* which is outside of it. If your system is the Cantor normal form, we can build *ε_0* which is outside of it. If your system is the Veblen normal form, we can build *Γ_0* which is outside of it.
+
+The current implementation is based on the Cantor normal form. These representations look like a polynomial in *ω*: *ω^β_1 c_1 + ω^β_2 c_2 + ... + ω^β_n c_n*, where *β* are ordinal and *c* are positive integers. Where this breaks down is at *ε_0*, which is the limit of *ω^ω^ω^...*, and has the special property that *ε_0 = ω^ε_0*. Written as tetration, *ε_0 = ω↑↑ω*. You can imagine this special ordinal *ε_0* causes problems for the Cantor normal form. Thus this implementation works great for everything below it but has no support at and above *ε_0*.
+
+Each smaller hierarchy is able to take advantage of higher level strangeness that does not apply to it. For example, below *ω*, we have *a+b=b+a*, and below *ε_0*, we have *ω^a > a*. This can be used to take shortcuts, and in fact, it is necessary to use rules from the lower hierarchies in working with the higher ones. A later version of this library will use a unified `ordinal` class which keeps ordinals represented in the smallest hierarchy that can contain it.
+
 Ordinals? Transfinite?
 ---
 We should begin our journey at the concept of transfinite numbers. In short, they are not quite finite, and not quite infinite.
