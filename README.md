@@ -1,6 +1,8 @@
 # transfinite
 Small library for working with ordinals and transfinite numbers.
 
+**This repository is being merged into [`komiamiko/doodads`](https://github.com/komiamiko/doodads). Please go there for recent code. This repository will go down sometime in the future.**
+
 Background
 ---
 
